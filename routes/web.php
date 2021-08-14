@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,11 @@ require __DIR__ . '/auth.php';
 
 Route::view('/results', 'components.results')->name('results');
 
-Route::view('/learn', 'components.learnmore')->name('learn');
+// Route::view('/read', 'components.readmore')->name('readmore');
+
+Route::get('/search', function (Request $request) {
+    $request->search == 'latest' ?
+        ddd('Latest about ' . $request->new)
+        :
+        ddd('Search ' . $request->new);
+})->name('search');
