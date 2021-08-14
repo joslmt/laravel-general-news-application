@@ -25,8 +25,9 @@ Route::view('/results', 'components.results')->name('results');
 // Route::view('/read', 'components.readmore')->name('readmore');
 
 Route::get('/search', function (Request $request) {
-    $request->search == 'latest' ?
-        ddd('Latest about ' . $request->new)
-        :
-        ddd('Search ' . $request->new);
+    ddd('Within search form ' . $request->new);
 })->name('search');
+
+Route::get('/latest', function (Request $request) {
+    ddd('Within latest form ' . $request->breaking);
+})->name('latest');
