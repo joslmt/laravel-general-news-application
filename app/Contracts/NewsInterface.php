@@ -9,18 +9,22 @@ namespace App\Contracts;
  */
 interface NewsInterface
 {
-
     /**
      * Get latest news, returning an array of news.
      *
+     * @param string $country Where to search.
+     * @param string $category What kind of news to learn.
+     * 
      * @return array
      */
-    public function getLatestNews(): array;
+    public function getLatestNews(string $country, string $category): array;
 
     /**
      * Search through millions of articles and return an array of information.
      *
+     * @param string $query New to search.
+     * 
      * @return array
      */
-    public function searchNews(): array;
+    public function searchNews(string $query): array;
 }
