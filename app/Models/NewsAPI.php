@@ -44,10 +44,12 @@ class NewsAPI implements NewsInterface
     /**
      * @inherit
      */
-    public function searchNews(string $query): array
+    public function searchNews(string $query, string $sort, string $language): array
     {
         return json_decode(
-            $this->client->get("everything?q={$query}")->getBody(),
+            $this->client->get(
+                "everything?q={$query}&sortBy={$sort}&language={$language}"
+            )->getBody(),
             true
         );
     }
