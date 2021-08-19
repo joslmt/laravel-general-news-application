@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsAPIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,12 +23,6 @@ require __DIR__ . '/auth.php';
 
 Route::view('/results', 'components.results')->name('results');
 
-// Route::view('/read', 'components.readmore')->name('readmore');
+Route::get('/search', [NewsAPIController::class, 'searchNews'])->name('search');
 
-Route::get('/search', function (Request $request) {
-    ddd('Within search form ' . $request->new);
-})->name('search');
-
-Route::get('/latest', function (Request $request) {
-    ddd('Within latest form ' . $request->breaking);
-})->name('latest');
+Route::get('/latest', [NewsAPIController::class, 'latestNews'])->name('latest');
