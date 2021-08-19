@@ -26,10 +26,11 @@ interface NewsInterface
      * Search through millions of articles and return an array of information.
      *
      * @param string $query New to search.
+     * @param string $sort How to sort news.
      * 
      * @return array
      * 
      * @see https://newsapi.org/docs/endpoints/everything
      */
-    public function searchNews(string $query): array;
+    public function searchNews(string $query, string $sort, string $language): array;
 }
