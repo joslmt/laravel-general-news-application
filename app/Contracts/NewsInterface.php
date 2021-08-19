@@ -15,7 +15,10 @@ interface NewsInterface
      * @param string $country Where to search.
      * @param string $category What kind of news to learn.
      * 
-     * @return array
+     * @return array News.
+     * 
+     * Category list and available countries :
+     * @see https://newsapi.org/docs/endpoints/top-headlines
      */
     public function getLatestNews(string $country, string $category): array;
 
@@ -25,6 +28,8 @@ interface NewsInterface
      * @param string $query New to search.
      * 
      * @return array
+     * 
+     * @see https://newsapi.org/docs/endpoints/everything
      */
     public function searchNews(string $query): array;
 }
