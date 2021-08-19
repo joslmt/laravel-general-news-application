@@ -1,11 +1,11 @@
 <x-app-layout>
     <section class="text-gray-600 body-font overflow-hidden">
         <div class="text-4xl max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            News
+            Breaking News
         </div>
         <div class="container px-5 py-24 mx-auto">
 
-            @foreach ($searchNews['articles'] as $new)
+            @foreach ($latestNews['articles'] as $new)
 
             <div class="-my-8 divide-y-2 divide-gray-100">
                 <div class="py-8 flex flex-wrap md:flex-nowrap">

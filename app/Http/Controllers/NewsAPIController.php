@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\NewsInterface;
 use App\Http\Requests\LatestNewsAPIRequest;
 use App\Http\Requests\SearchNewsAPIRequest;
+use Illuminate\Contracts\View\View;
 
 class NewsAPIController extends Controller
 {
@@ -29,31 +30,37 @@ class NewsAPIController extends Controller
      * Return the latest news using NewsAPI.
      *
      * @param LatestNewsAPIRequest $request
-     * @return array
      * 
+     * @return View
+     *  
      * @see https://newsapi.org/docs/endpoints/top-headlines
      */
-    public function latestNews(LatestNewsAPIRequest $request): array
+    public function latestNews(LatestNewsAPIRequest $request): View
     {
-        $country = $request->input('country');
-        $category = $request->input('categories');
-        $sort = $request->input('sort');
-        return $this->news->getLatestNews($country, $category, $sort);
+        $latestNews = $this->news->getLatestNews(
+            $request->input('country'),
+            $request->input('categories'),
+            $request->input('sort')
+        );
+        return view('components.latest', compact('latestNews'));
     }
 
     /**
      * Search news.
      *
      * @param SearchNewsAPIRequest $request
-     * @return array
      * 
+     * @return View
+     *  
      * @see https://newsapi.org/docs/endpoints/everything
      */
-    public function searchNews(SearchNewsAPIRequest $request): array
+    public function searchNews(SearchNewsAPIRequest $request): View
     {
-        $query = $request->input('new');
-        $sort = $request->input('sort');
-        $language = $request->input('language');
-        return $this->news->searchNews($query, $sort, $language);
+        $searchNews = $this->news->searchNews(
+            $request->input('new'),
+            $request->input('sort'),
+            $request->input('language')
+        );
+        return view('components.results', compact('searchNews'));
     }
 }
