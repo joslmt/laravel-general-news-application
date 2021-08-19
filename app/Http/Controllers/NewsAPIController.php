@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\NewsInterface;
-use Illuminate\Http\Request;
+use App\Http\Requests\LatestNewsAPIRequest;
+use App\Http\Requests\SearchNewsAPIRequest;
 
 class NewsAPIController extends Controller
 {
@@ -26,15 +27,14 @@ class NewsAPIController extends Controller
 
     /**
      * Return the latest news using NewsAPI.
-     * 
+     *
+     * @param LatestNewsAPIRequest $request
      * @return array
      * 
      * @see https://newsapi.org/docs/endpoints/top-headlines
      */
-    public function latestNews(Request $request): array
+    public function latestNews(LatestNewsAPIRequest $request): array
     {
-        //TODO request validation
-
         $country = $request->input('country');
         $category = $request->input('categories');
         $sort = $request->input('sort');
@@ -44,14 +44,13 @@ class NewsAPIController extends Controller
     /**
      * Search news.
      *
+     * @param SearchNewsAPIRequest $request
      * @return array
      * 
      * @see https://newsapi.org/docs/endpoints/everything
      */
-    public function searchNews(Request $request): array
+    public function searchNews(SearchNewsAPIRequest $request): array
     {
-        //TODO request validation
-
         $query = $request->input('new');
         $sort = $request->input('sort');
         $language = $request->input('language');
