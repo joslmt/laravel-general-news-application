@@ -31,7 +31,7 @@ class NewsAPI implements NewsInterface
     /**
      * @inherit
      */
-    public function getLatestNews(string $country = 'us', string $category = 'business'): array
+    public function getLatestNews(string $country, string $category): array
     {
         return json_decode(
             $this->client->get(
@@ -44,7 +44,7 @@ class NewsAPI implements NewsInterface
     /**
      * @inherit
      */
-    public function searchNews(string $query = 'bitcoin'): array
+    public function searchNews(string $query): array
     {
         return json_decode(
             $this->client->get("everything?q={$query}")->getBody(),
