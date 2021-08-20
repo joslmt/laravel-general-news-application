@@ -14,11 +14,7 @@
                         <span class="mt-1 text-gray-500 text-sm">
                             {{ $new['publishedAt'] }}
                         </span>
-                        <form class="grid mt-2" action="#">
-                            <button class="w-1/2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                Share
-                            </button>
-                        </form>
+                        <img src="{{ $new['urlToImage'] }}" class="w-20 md:w-32 lg:w-48" alt="news">
                     </div>
                     <div class="md:flex-grow">
                         <div class="flex self-align gap-3">
