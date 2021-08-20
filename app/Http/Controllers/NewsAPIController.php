@@ -40,7 +40,6 @@ class NewsAPIController extends Controller
         $latestNews = $this->news->getLatestNews(
             $request->input('country'),
             $request->input('categories'),
-            $request->input('sort')
         );
         return view('components.latest', compact('latestNews'));
     }
