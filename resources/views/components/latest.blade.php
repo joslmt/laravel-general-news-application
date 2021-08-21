@@ -5,21 +5,21 @@
         </div>
         <div class="container px-5 py-24 mx-auto">
 
-            @foreach ($latestNews['articles'] as $new)
+            @foreach ($latestNews['articles'] as $latestNew)
 
             <div class="-my-8 divide-y-2 divide-gray-100">
                 <div class="py-8 flex flex-wrap md:flex-nowrap">
                     <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                        <span class="font-semibold title-font text-gray-700">Source: {{ $new['source']['name'] }}</span>
+                        <span class="font-semibold title-font text-gray-700">Source: {{ $latestNew['source']['name'] }}</span>
                         <span class="mt-1 text-gray-500 text-sm">
-                            {{ $new['publishedAt'] }}
+                            {{ $latestNew['publishedAt'] }}
                         </span>
-                        <img src="{{ $new['urlToImage'] }}" class="w-20 md:w-32 lg:w-48" alt="news">
+                        <img src="{{ $latestNew['urlToImage'] }}" class="w-20 md:w-32 lg:w-48" alt="latestNews">
                     </div>
                     <div class="md:flex-grow">
                         <div class="flex self-align gap-3">
                             <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
-                                {{ $new['title'] }}
+                                {{ $latestNew['title'] }}
                             </h2>
                             <form action="#" method="post">
                                 @csrf
@@ -31,9 +31,9 @@
                             </form>
                         </div>
                         <p class="leading-relaxed">
-                            {{ $new['description'] }}
+                            {{ $latestNew['description'] }}
                         </p>
-                        <a href="{{ $new['url'] }}" class="text-indigo-500 inline-flex items-center mt-4">Learn More
+                        <a href="{{ $latestNew['url'] }}" class="text-indigo-500 inline-flex items-center mt-4">Learn More
                             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M5 12h14"></path>
                                 <path d="M12 5l7 7-7 7"></path>
