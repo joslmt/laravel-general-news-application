@@ -44,7 +44,7 @@ class NewsAPI implements NewsInterface
 
         $latestNews = json_decode(
             $this->client->get(
-                "top-headlines?country={$country}&category={$category}"
+                "top-headlines?country={$country}&category={$category}&pageSize=100"
             )->getBody(),
             true
         );
@@ -65,7 +65,7 @@ class NewsAPI implements NewsInterface
 
         $news = json_decode(
             $this->client->get(
-                "everything?q={$query}&sortBy={$sort}&language={$language}"
+                "everything?q={$query}&sortBy={$sort}&language={$language}&pageSize=100"
             )->getBody(),
             true
         );
