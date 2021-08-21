@@ -5,7 +5,7 @@
         </div>
         <div class="container px-5 py-24 mx-auto">
 
-            @foreach ($searchNews['articles'] as $new)
+            @foreach ($news['articles'] as $new)
 
             <div class="-my-8 divide-y-2 divide-gray-100">
                 <div class="py-8 flex flex-wrap md:flex-nowrap">

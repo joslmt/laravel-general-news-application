@@ -55,11 +55,11 @@ class NewsAPIController extends Controller
      */
     public function searchNews(SearchNewsAPIRequest $request): View
     {
-        $searchNews = $this->news->searchNews(
+        $news = $this->news->searchNews(
             $request->input('new'),
             $request->input('sort'),
             $request->input('language')
         );
-        return view('components.results', compact('searchNews'));
+        return view('components.results', compact('news'));
     }
 }
