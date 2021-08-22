@@ -13,9 +13,20 @@
                         <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-800">
                             Laravel News API
                         </h1>
-                        <p class="mb-8 leading-relaxed">
-                            Kickstarter biodiesel roof party wayfarers cold-pressed. Palo santo live-edge tumeric scenester copper mug flexitarian. Prism vice offal plaid everyday carry. Gluten-free chia VHS squid listicle artisan.
-                        </p>
+
+                        <div class="px-auto h-full bg-gray-100 p-5 rounded"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+                                <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                            </svg>
+                            <p class="leading-relaxed mb-6">
+                                Today's gossip is tomorrow's headline.
+                            </p>
+                            <a class="inline-flex items-center">
+                                <span class="flex-grow flex flex-col pl-4">
+                                    <span class="title-font font-medium text-gray-900">Walter Winchell</span>
+                                    <span class="text-gray-500 text-sm">Journalist</span>
+                                </span>
+                            </a>
+                        </div>
 
                         <div class="relative mr-4">
                             <div x-data="setup()">
@@ -27,7 +38,7 @@
                                 <!-- 
                                     Tabs
                                  -->
-                                <div class="p-16 mx-auto">
+                                <div class="px-16 pb-16 pt-5 mx-auto">
 
                                     <div x-show="activeTab===0">
 
@@ -38,14 +49,15 @@
                                             <div class="lg:flex gap-2">
                                                 <input placeholder="bitcoin price" type="text" id="new" name="new" class="lg:mb-0 w-full mb-2 bg-gray-300 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-300 text-base outline-none text-gray-700 py-2 leading-8 transition-colors duration-200 ease-in-out">
 
-                                                <button type="submit" class="w-full lg:w-1/4 inline-flex text-white bg-indigo-500 border-0 py-2.5 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Search</button>
+                                                <button type="submit" class="w-full lg:w-1/4 inline-flex text-white bg-indigo-500 border-0 p-4
+                                                focus:outline-none hover:bg-indigo-600 rounded text-md">Search</button>
                                             </div>
 
                                             <div class="flex justify-center flex-wrap gap-1 mt-2 w-xl">
                                                 <!-- 
                                                     Sort by
                                              -->
-                                                <select class="w-1/2 lg:w-1/4 sm:w-full bg-gray-100 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-300 text-base outline-none text-gray-700 py-1 leading-8 transition-colors duration-200 ease-in-out" name="sort" id="sort">
+                                                <select class="w-full sm:w-full bg-gray-100 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-300 text-base outline-none text-gray-700 py-1 leading-8 transition-colors duration-200 ease-in-out" name="sort" id="sort">
                                                     <option disabled="disabled" selected label="Sort by"></option>
                                                     <option value="relevancy">
                                                         Relevancy
@@ -60,7 +72,7 @@
                                                 <!-- 
                                                     Language
                                                  -->
-                                                <select class="w-1/2 lg:w-1/3 sm:w-full bg-gray-100 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-300 text-base outline-none text-gray-700 py-1 leading-8 transition-colors duration-200 ease-in-out" name="language" id="language">
+                                                <select class="w-full sm:w-full bg-gray-100 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-300 text-base outline-none text-gray-700 py-1 leading-8 transition-colors duration-200 ease-in-out" name="language" id="language">
                                                     <option disabled="disabled" selected label="Languages"></option>
                                                     <option value="fr">French</option>
                                                     <option value="ar">Arabian</option>
@@ -81,7 +93,7 @@
                                      -->
                                         <form action="{{ route('latest') }}" method="get">
                                             <div class="lg:flex gap-2">
-                                                <button type="submit" class="w-full lg:w-1/4 inline-flex text-white bg-red-500 border-0 py-2.5 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Search latest</button>
+                                                <button type="submit" class="w-full mb-5 h-12 px-5 text-white transition-colors duration-100 bg-red-500 rounded-lg focus:shadow-outline hover:bg-red-600 text-md">Search latest</button>
                                             </div>
 
                                             <div class="flex justify-center flex-wrap gap-1 mt-2 w-2xl">
@@ -146,7 +158,7 @@
                                                 <!-- 
                                                     Categories
                                                  -->
-                                                <select class="w-1/2 lg:w-1/2 sm:w-full bg-gray-100 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-300 text-base outline-none text-gray-700 py-1 leading-8 transition-colors duration-200 ease-in-out" name="categories" id="categories">
+                                                <select class="w-full lg:w-1/2 sm:w-full bg-gray-100 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-300 text-base outline-none text-gray-700 py-1 leading-8 transition-colors duration-200 ease-in-out" name="categories" id="categories">
                                                     <option disabled="disabled" selected label="Category"></option>
                                                     <option value="business">Business</option>
                                                     <option value="entertainment">Entertainment</option>
