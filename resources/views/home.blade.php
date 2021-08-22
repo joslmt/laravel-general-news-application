@@ -74,11 +74,11 @@
                                                 <select class="w-full sm:w-full bg-gray-100 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-300 text-base outline-none text-gray-700 py-1 leading-8 transition-colors duration-200 ease-in-out" name="language" id="language">
                                                     <option disabled="disabled" selected label="Languages"></option>
                                                     <option value="fr">French</option>
-                                                    <option value="ar">Arabian</option>
-                                                    <option value="ru">Russian</option>
                                                     <option value="en">English</option>
                                                     <option value="es">Spanish</option>
                                                     <option value="pt">Portuguese</option>
+                                                    <option value="ru">Russian</option>
+                                                    <option value="ar">Arabian</option>
                                                 </select>
                                             </div>
                                         </form>
