@@ -10,9 +10,13 @@
                 <div class="py-8 flex flex-wrap md:flex-nowrap">
                     <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                         <span class="font-semibold title-font text-gray-700">Source: {{ $latestNew['source']['name'] }}</span>
+                        @if (!$latestNew['urlToImage'])
+                        <p class="p-5 font-semibold text-red-500">Not available image</p>
+                        @else
                         <a href="{{ $latestNew['urlToImage'] }}">
                             <img src="{{ $latestNew['urlToImage'] }}" class="w-20 my-3 md:w-32 lg:w-56 border rounded" alt="latestNews">
                         </a>
+                        @endif
                         <span class="mt-1 text-gray-500 text-sm">
                             {{ substr($latestNew['publishedAt'], 0, 10) }}
                         </span>
