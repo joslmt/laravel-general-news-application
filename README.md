@@ -5,28 +5,28 @@
 
 # Laravel - NewsAPI
 - [Laravel - NewsAPI](#laravel---newsapi)
-  - [What is](#what-is)
-  - [Project purpose](#project-purpose)
+  - [What is  :memo:](#what-is--memo)
+  - [Project purpose :information_source:](#project-purpose-information_source)
     - [What makes it different ?](#what-makes-it-different-)
-  - [What uses](#what-uses)
+  - [What uses :information_source:](#what-uses-information_source)
   - [Screenshots](#screenshots)
-  - [How to install](#how-to-install)
-  - [How to configure](#how-to-configure)
+  - [How to install :question:](#how-to-install-question)
+  - [How to configure it :question:](#how-to-configure-it-question)
     - [Get an API key](#get-an-api-key)
-    - [How to execute](#how-to-execute)
-  - [Testing](#testing)
+    - [How to execute :question:](#how-to-execute-question)
+  - [Testing :heavy_check_mark:](#testing-heavy_check_mark)
 
 
-## What is
+## What is  :memo:
 It's a web that uses [NewsAPI]('https://newsapi.org/) like main API to get differents news about something particular or some topic like health. This app provides two types of search, the first one it's about searching some concret thing, the other gets latest news.
 
-## Project purpose
+## Project purpose :information_source:
 The goal was to dive into concepts like Service Provider and Service Container, also other of the purposes was to enhance SOLID principles like Interface Segretation Principle (IS) and Dependency Inversion Principle (DIP).
 
 ### What makes it different ?
-It's not like other applications that have a strong union with a specific API, this app offers to the users the ability to change over API news with a few modifications, thanks to **Interface Segregation Principle**
+It's not like other applications that have a strong dependency with a specific API, this app offers to the users the ability to change over API news with a few modifications, thanks to **Interface Segregation Principle**
 
-## What uses
+## What uses :information_source:
 It's easy, just :
 - Laravel 8 with the last available version at the moment [Laravel]( https://laravel.com/) . 
 - Laravel Breeze for handle authentication features, [Laravel Breeze](https://laravel.com/docs/8.x/starter-kits#laravel-breeze) .
@@ -35,7 +35,7 @@ It's easy, just :
 ## Screenshots
 Some pictures about the app :
 
-## How to install
+## How to install :question:
 Clone the repository and install project dependencies with :
 
 ```
@@ -44,8 +44,8 @@ git clone git@github.com:joslmt/news-api.git
 composer install
 ```
 
-## How to configure
-It's necessary gets a `.env` , so writte in console :
+## How to configure it :question:
+It's necessary gets a `.env` file, so writte in console :
 
 ```
 cp .env.example .env
@@ -70,15 +70,15 @@ Finally, push your database config within `.env` .
 ### Get an API key
 Just go to [NewsAPI]('https://newsapi.org/) and click 'Get API Key' .
 
-### How to execute
+### How to execute :question:
 There're some options, if you use something like XAMPP or similar :
 ```
 php artisan test
 ```
 
-Or a good alternative like Docker or Homestead like me. 
-
+Or a good alternative like Docker or Homestead like me, take a look to one of my previous projects where I explained the steps to get Homestead installed.
 [How to install Homestead for Laravel.]('https://github.com/joslmt/CRUD')
 
-## Testing
+## Testing :heavy_check_mark:
 There're a few test to check the app.
+**Under building**
