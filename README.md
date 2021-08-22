@@ -35,6 +35,13 @@ It's easy, just :
 ## Screenshots
 Some pictures about the app :
 
+![home](https://user-images.githubusercontent.com/64318244/130360941-c236848b-ebfa-47c7-a2d6-d855666033ec.PNG)
+
+![latest](https://user-images.githubusercontent.com/64318244/130360890-42cdc2dc-104d-491f-a261-7a8647de9394.PNG)
+
+![results](https://user-images.githubusercontent.com/64318244/130360891-c604bb1a-4b0b-4f0d-8a64-794941dc6c76.PNG)
+
+
 ## How to install :question:
 Clone the repository and install project dependencies with :
 
