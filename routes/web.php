@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-require __DIR__ . '/auth.php';
+/**
+ * At the moment the app doesnt use registration.
+ */
+// require __DIR__ . '/auth.php';
 
 Route::get('/search', [NewsAPIController::class, 'searchNews'])->name('search');
 Route::get('/latest', [NewsAPIController::class, 'latestNews'])->name('latest');
