@@ -85,7 +85,3 @@ php artisan test
 
 Or a good alternative like Docker or Homestead like me, take a look to one of my previous projects where I explained the steps to get Homestead installed.
 [How to install Homestead for Laravel.]('https://github.com/joslmt/CRUD')
-
-## Testing :heavy_check_mark:
-There're a few test to check the app.
-**Under building**
