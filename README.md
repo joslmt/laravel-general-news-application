@@ -14,7 +14,6 @@
   - [How to configure it :question:](#how-to-configure-it-question)
     - [Get an API key](#get-an-api-key)
     - [How to execute :question:](#how-to-execute-question)
-  - [Testing :heavy_check_mark:](#testing-heavy_check_mark)
 
 
 ## What is  :memo:
@@ -75,7 +74,7 @@ Finally, push your database config within `.env` .
 ```
 
 ### Get an API key
-Just go to [NewsAPI]('https://newsapi.org/) and click 'Get API Key' .
+Just go to [NewsAPI](https://newsapi.org/) and click 'Get API Key' .
 
 ### How to execute :question:
 There're some options, if you use something like XAMPP or similar :
@@ -84,4 +83,4 @@ php artisan serve
 ```
 
 Or a good alternative like Docker or Homestead like me, take a look to one of my previous projects where I explained the steps to get Homestead installed.
-[How to install Homestead for Laravel.]('https://github.com/joslmt/CRUD')
+[How to install Homestead for Laravel.](https://github.com/joslmt/CRUD)
