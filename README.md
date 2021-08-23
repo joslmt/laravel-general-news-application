@@ -80,7 +80,7 @@ Just go to [NewsAPI]('https://newsapi.org/) and click 'Get API Key' .
 ### How to execute :question:
 There're some options, if you use something like XAMPP or similar :
 ```
-php artisan test
+php artisan serve
 ```
 
 Or a good alternative like Docker or Homestead like me, take a look to one of my previous projects where I explained the steps to get Homestead installed.
