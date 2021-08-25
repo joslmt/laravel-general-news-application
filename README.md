@@ -14,6 +14,7 @@
   - [How to configure it :question:](#how-to-configure-it-question)
     - [Get an API key](#get-an-api-key)
     - [How to execute :question:](#how-to-execute-question)
+  - [Testing](#testing)
 
 
 ## What is  :memo:
@@ -84,3 +85,27 @@ php artisan serve
 
 Or a good alternative like Docker or Homestead like me, take a look to one of my previous projects where I explained the steps to get Homestead installed.
 [How to install Homestead for Laravel.](https://github.com/joslmt/CRUD)
+
+## Testing
+To test the app I decided to use SQLite, just for speed. It's required to get a new `.env` where config the database options to SQLite and also create a SQLite database.
+
+```
+touch database/database.sqlite
+```
+
+```
+cp .env.example .env.testing
+```
+
+Then, within `.env.testing` replace database variables with :
+```
+DB_CONNECTION=sqlite
+DB_DATABASE=/absolute/path/to/database.sqlite
+```
+
+Finally : 
+```
+php artisan test --env=testing
+```
+
+And don't forget to put your API key.
