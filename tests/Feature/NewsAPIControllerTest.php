@@ -59,4 +59,47 @@ class NewsAPIControllerTest extends TestCase
         )->assertSuccessful()
             ->assertSee('Breaking News');
     }
+
+    /**
+     * @test 
+     */
+    public function search_news_redirect_to_home_if_not_all_options_are_selected()
+    {
+        /**
+         * We also need a new to search.
+         */
+        $this->get(
+            route(
+                'search',
+                [
+                    'sort' => 'popularity',
+                    'language' => 'en',
+                ]
+            ),
+            [
+                'X-Api-Key' => config('app.news_api')
+            ]
+        )->assertRedirect(route('home'));
+    }
+
+    /**
+     * @test 
+     */
+    public function breaking_news_search_redirect_to_home_if_not_all_options_are_selected()
+    {
+        /**
+         * We also need a country where to search.
+         */
+        $this->get(
+            route(
+                'latest',
+                [
+                    'categories' => 'health',
+                ]
+            ),
+            [
+                'X-Api-Key' => config('app.news_api')
+            ]
+        )->assertRedirect(route('home'));
+    }
 }
