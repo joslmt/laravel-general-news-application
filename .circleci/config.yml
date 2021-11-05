@@ -1,0 +1,50 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      # Specify the php version
+      - image: circleci/php:8.0-node-browsers
+      
+    steps:
+      - checkout
+
+      # Prepare environmen
+      - run: 
+          name: "Prepare environment"
+          command: | 
+            sudo apt update
+            sudo docker-php-ext-install zip
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - composer-v1-{{ checksum "composer.lock" }}
+            - composer-v1-
+
+      - run:
+          name: "Install Dependencies"
+          command: composer install
+
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - ./vendor
+
+      # prepare the environment
+      - run:
+          name: "Create Environment file and APP KEY"
+          command: |
+            mv .env.testing .env
+            php artisan key:generate
+            
+      # prepare the database
+      - run:
+          name: "Create database and run migrations"
+          command: |
+            touch database/database.sqlite
+            php artisan migrate --env=testing
+            
+      - run:
+          name: "Running tests"
+          command: ./vendor/bin/phpunit
