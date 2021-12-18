@@ -6,37 +6,11 @@ use App\Contracts\NewsInterface;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Cache;
 
-/**
- * This class handles all logic about request to NewsAPI, it uses Guzzle to do 
- * it.
- * 
- * @author Jose <joseluis95123@gmail.com> 
- */
 class NewsAPI implements NewsInterface
 {
-    /**
-     * @var Client
-     */
-    protected $client;
-
-    public function __construct()
-    {
-        $this->client = new Client([
-            'base_uri' => 'https://newsapi.org/v2/',
-            'headers' => [
-                'X-Api-Key' => config('app.news_api')
-            ]
-        ]);
-    }
-
-    /**
-     * @inherit
-     * 
-     * Use Cache
-     * 
-     * @see https://laravel.com/docs/8.x/cache#cache-usage 
-     */
-    public function getLatestNews(string $country, string $category): array
+    public function __construct(private Client $client){}
+   
+    public function latestNews(string $country, string $category): array
     {
         if (Cache::has("latestNews{$category}-{$country}")) {
             return Cache::get("latestNews{$category}-{$country}");
@@ -54,9 +28,6 @@ class NewsAPI implements NewsInterface
         return $latestNews;
     }
 
-    /**
-     * @inherit
-     */
     public function searchNews(string $query, string $sort, string $language): array
     {
         if (Cache::has("searchNews{$query}-{$language}")) {
