@@ -3,35 +3,26 @@
 namespace App\Providers;
 
 use App\Contracts\NewsInterface;
-use App\Http\Controllers\NewsAPIController;
 use App\Models\NewsAPI;
+use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     * 
-     * Using Contextual binding for future implementations.
-     * 
-     * @return void
-     * 
-     * @see https://laravel.com/docs/8.x/container#contextual-binding
-     */
     public function register()
     {
-        $this->app->when(NewsAPIController::class)
-            ->needs(NewsInterface::class)
-            ->give(NewsAPI::class);
+        $this->app->bind(abstract: NewsInterface::class, concrete: NewsAPI::class);
+        $this->app->bind(Client::class, fn() => new Client([
+                    'base_uri' => 'https://newsapi.org/v2/',
+                    'headers' => [
+                        'X-Api-Key' => config('app.news_api')
+                    ]
+                ])  
+        );
     }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
+    
     public function boot()
     {
-        //
+       // 
     }
 }

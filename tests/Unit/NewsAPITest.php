@@ -7,13 +7,7 @@ use Tests\TestCase;
 
 class NewsAPITest extends TestCase
 {
-
-    /**
-     * Get a NewsAPI object to test request.
-     *
-     * @return NewsAPI
-     */
-    private function getNewsAPI(): NewsAPI
+    private function client(): NewsAPI
     {
         return $this->app->make(NewsAPI::class);
     }
@@ -23,7 +17,7 @@ class NewsAPITest extends TestCase
      */
     public function getLatestNews_return_an_array()
     {
-        $request = $this->getNewsAPI()->getLatestNews('ar', 'health');
+        $request = $this->client()->latestNews('ar', 'health');
         $this->assertIsArray($request);
         $this->assertArrayHasKey('title', $request['articles'][0]);
     }
@@ -33,7 +27,7 @@ class NewsAPITest extends TestCase
      */
     public function searchNews_return_an_array()
     {
-        $request = $this->getNewsAPI()->searchNews('b', 'popularity', 'en');
+        $request = $this->client()->searchNews('b', 'popularity', 'en');
         $this->assertIsArray($request);
         $this->assertArrayHasKey('title', $request['articles'][0]);
     }

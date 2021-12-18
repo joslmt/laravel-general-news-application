@@ -9,50 +9,17 @@ use Illuminate\Contracts\View\View;
 
 class NewsAPIController extends Controller
 {
-    /**
-     * NewsInterface object.
-     *
-     * @var NewsInterface
-     */
-    private $news;
+    public function __construct(private NewsInterface $news){}
 
-    /**
-     * Dependency injection.
-     *
-     * @param NewsInterface $news
-     */
-    public function __construct(NewsInterface $news)
-    {
-        $this->news = $news;
-    }
-
-    /**
-     * Return the latest news using NewsAPI.
-     *
-     * @param LatestNewsAPIRequest $request
-     * 
-     * @return View
-     *  
-     * @see https://newsapi.org/docs/endpoints/top-headlines
-     */
     public function latestNews(LatestNewsAPIRequest $request): View
     {
-        $latestNews = $this->news->getLatestNews(
+        $latestNews = $this->news->latestNews(
             $request->input('country'),
             $request->input('categories'),
         );
         return view('components.latest', compact('latestNews'));
     }
 
-    /**
-     * Search news.
-     *
-     * @param SearchNewsAPIRequest $request
-     * 
-     * @return View
-     *  
-     * @see https://newsapi.org/docs/endpoints/everything
-     */
     public function searchNews(SearchNewsAPIRequest $request): View
     {
         $news = $this->news->searchNews(
